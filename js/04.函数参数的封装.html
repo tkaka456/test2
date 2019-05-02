@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //function rect(x, y, width, height, bgcolor, text, text_color, text_x, text_y) {
+
+        // }
+        //如果函数的形参非常多
+        //开法人员南极一 编码不方便 传参数容易出错
+        //解决方法 把这些形参封装成一个对象进行传递
+
+        function rect2(rectObj) {
+            console.log(rectObj.x + '  ' + rectObj.y);
+
+        }
+        var rectObj = {
+            x: 19,
+            y: 20,
+            width: 200,
+            height: '#ccc',
+            text: 'laoma',
+        };
+        rect2(rectObj)
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function object(o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
+
+        var m = {
+            age = 19,
+            name: 'laoma',
+            friends: ['laoma', 'jimik']
+        };
+        var m1 = object(m);
+
+        console.log(m1.friends);
+        m1.age = 20;
+
+        //优点：
+        //不需要使用new构造函数就可以直接构造另外其他对象
+        //缺点 所有构造出来的实例会共享原型对象上的引用类型的属性
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function Persion() {
+            var age = 0;
+            this.getAge = function() { //只能通过 setAge getAge来操作
+                return age;
+            }
+
+            this.setAge = function(a) {
+                age = a;
+            }
+        }
+
+        var p = new Persion();
+        p.setAge(90);
+        //访问p的年龄
+        console.log(p.getAge());
+
+
+        //第二种
+
+        function Persion() {
+            var age = 0;
+            return {
+                getAge: function() {
+                    return age;
+                },
+                setAge: function(num) {
+                    age = num;
+                }
+            }
+        }
+
+        var p = Persion(); //创建一个persion对象
+        p.setAge(20);
+        console.log(p.getAfe());
+    </script>
+</body>
+
+</html>

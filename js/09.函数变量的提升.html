@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = 10;
+
+        function f1() {
+            //函数执行前，先创建了函数的ec
+            //ec的时候已经把函数脸面的变量声明都就已经初始化成underfined
+
+            console.log(a); //a = underfined 访问下面 var a = 19,在变量前ec成underfined 优先函数内部
+            //函数内没有a会变成全局变量 a = 10
+
+            var a = 19; //给局部变量a赋值19
+            console.log(a); // a = 19
+
+        }
+        f1();
+        console.log(a); // a = 10
+
+
+
+
+
+
+        console.log(b); //b=function
+
+        var b = 9;
+
+        function b() {
+
+        }
+        console.log(b); // b = 9
+    </script>
+</body>
+
+</html>

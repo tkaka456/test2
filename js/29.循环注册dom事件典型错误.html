@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script>
+        //从文档结果中获取所以li标签
+        var lis = document.querySelectorAll('li');
+        console.log(lis);
+
+
+        //循环注册时间的index的典型错误
+        // for (var i = 0; i < lis.length; i++) { //事件的方法执行是：当时间触发的时候执行//lis[0].onclick=function(e)单不会执行
+
+        //     lis[i].onclick = function(e) { //把当前的素银i的值打印出来
+        //         //变量i是父函数里面的变量
+        //         console.log(i);
+        //     }
+        // }
+
+        //把循环注册事件做成 自执行函数来传递变量i
+        for (var i = 0; i < lis.length; i++) {
+
+            (function(a) {
+                lis[a].onclick = function(e) {
+                    console.log(a)
+                }
+            })(i);
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //window是全局变量
+        //在全局作用域中生命的变量和函数声明都会最为window的属性存在
+        // var a = 9;
+
+        // function b() {
+        //     console.log(a);
+        // }
+
+        // console.log('a' in window);
+        // console.log(window.a);
+        // console.log(window['a']);
+        // console.log(window.b()); //调用函数计算
+
+
+        //案例2
+
+        // if (!('a' in window)) { //'a' in window是ture 因为 a = undifined
+        //     var a = 1;
+        // }
+        // console.log(a); //返回 undifined 如果加上两个！！反回 a = 1
+
+        //案例3
+        // console.log(a); //a = function
+        // var a = 20;
+        // console.log(a); //a = 20
+
+        // function a() {
+
+        //}
+
+        //案例4
+
+        // f();
+        // console.log(c); //c = 9
+        // console.log(b); //b = 9
+        // console.log(a); //报错 没有定义a
+
+        // function f() {
+        //     var a = b = c = 9; //a是全局变量， b c 是全局变量
+        //     console.log(a); //9
+        //     console.log(b); //9
+        //     console.log(c); //9
+
+        //}
+
+
+        //案例5
+        f();
+
+        function f() {
+            for (var k = 0; k < 10; k++) {
+                console.log(k); //依次输出0-9
+            }
+            console.log(k); //k = 10;
+        }
+    </script>
+</body>
+
+</html>

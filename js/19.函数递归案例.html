@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //匿名函数
+        var f = function() {
+            console.log('sss');
+        }
+
+        f();
+        //函数命名表达式，fun相当于函数内部添加一变量fun，fun指向函数自身
+        //fun === arguments.callee
+        //fun的作用域在函数内部 不会影响函数外面
+        var m = function fun() {
+            console.log('fun');
+            //fun()自己调自己不影响外面
+        }
+
+        m();
+
+        //求num阶乘
+        function factorial(num) {
+            if (num == 1) {
+                return 1;
+            }
+            return num * factorial(num - 1);
+        }
+
+        console.log(factorial(10));
+
+        //求f(n)的斐波那契额数列的值 f(n) = f(n-1) + f(n-2); n>=3
+        //f(0) = 0, f(1) =1 f(2) =1 f(3) = 2.....
+
+        function fibonacci(n) {
+            if (n == 1) {
+                return 1;
+            }
+            if (n == 0) {
+                return 0;
+            }
+            return fibonacci(n - 1) + fibonacci(n - 2);
+        }
+
+        console.log(fibonacci(10));
+    </script>
+</body>
+
+</html>

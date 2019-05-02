@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //父类
+        function Animal(age, name) {
+            this.age = age;
+            this.name = name;
+            this.foods = ['水', 'ls'];
+        }
+
+        Animal.prototype.run = function() {
+            console.log(this.name + ' running');
+        };
+
+        function Cat(age, name) {
+            //使用借用构造函数继承模式来构建对象的实例属性
+            Animal.call(this, age, name);
+        }
+
+
+        //寄生继承的方法
+        Cat.prototype = inheritFrom(Animal.prototype);
+
+        var c1 = new Cat(19, 'laoma');
+
+        console.log(c1);
+
+
+        c1.run();
+
+
+        function inheritFrom(o) {
+            var t = object(o);
+            t.constructor = Cat; //把cat原型的构造函数指回Cat的构造
+            return t;
+        }
+
+        //原型式继承的方法
+        function object(o) {
+            function F() {}
+            F.prototype = o;
+            return new F();
+        }
+    </script>
+</body>
+
+</html>

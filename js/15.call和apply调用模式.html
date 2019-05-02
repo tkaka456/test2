@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function sum(a, b) {
+            console.log(this);
+            return a + b;
+        }
+
+        sum(1, 2); // this = window
+
+        var t = {
+            name: 'laoma'
+        }
+
+        var m = sum.call(t, 2, 3, 9, 10); //t赋值 this.name:'laoma'
+        console.log(m); //= 5
+
+        var m2 = sum.apply(t, [1, 2]);
+        console.log(m2);
+
+        //如果传递第一个参数是 null undefined输出window
+        //如果传递是number， string， boolean转成对应的包装类型
+        sum.call(null, 3, 5);
+        sum.call(undefined, 3, 5);
+        sum.call(3, 3, 5);
+    </script>
+</body>
+
+</html>

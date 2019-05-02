@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var a = [1, 9, 20, 333, 4, 43];
+        a.forEach(function(item) {
+            console.log(item);
+        });
+        //数组清零 让gc尽快回收
+        //a = null; 首先把a转成null类型
+        //a = {}；还是会占用空间
+        //a.length = 0; //可以直接清空而且数组类型不变
+        var t = {}; //放到里面每次循环都会创建新对象
+        for (var i = 0; i < 10; i++) {
+            //var t = {}; //放到里面每次循环都会创建新对象
+            t.age = 19;
+            t.name = '123';
+            t.index = i;
+            console.log(t);
+        }
+        t = null; //如果对象不用了 立即设置为null 等待垃圾回收
+
+        //在循环中最好用使用幻术表达式 不停创建function
+        // for(var k = 0; k < 10; k++) {
+        //     var t = function(a) {  //创建10次函数对象
+        //         console.log(a);
+        //     };
+        //     t(k);
+        // }
+
+        function t(a) {
+            console.log(a);
+        }
+        for (var k = 0; k < 10; k++) {
+            t(k);
+        }
+
+        t = null; //用完释放空间
+    </script>
+</body>
+
+</html>

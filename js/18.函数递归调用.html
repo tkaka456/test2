@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //求1-100的和
+
+        //常规写法
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum += i;
+        }
+        console.log(sum);
+
+        //用递归实现
+        function sumNum(num) {
+            if (num <= 1) {
+                return num;
+            }
+            //return sumNum(num - 1) + num; //自己调用自己 sumNum (99)+100 
+            return arguments.callee(num - 1) + num; //和上面效果一样
+            //arguments.callee在严格模式下不要用 容易报错 
+
+        }
+
+        console.log(sumNum(100));
+    </script>
+</body>
+
+</html>
